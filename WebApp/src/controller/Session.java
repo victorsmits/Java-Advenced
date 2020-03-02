@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.http.HttpSession;
 
 // As of Servlet API 3.0, the @WebServlet annotation provides configuration
 // settings that used to be included in the deployment descriptor web.xml.
@@ -27,8 +28,8 @@ import java.io.PrintWriter;
 //    <url-pattern>/home</url-pattern>
 // </servlet-mapping>
 
-@WebServlet(name = "Login", urlPatterns = {"/login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "Session", urlPatterns = {"/session"})
+public class Session extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,20 +37,39 @@ public class Login extends HttpServlet {
       Cookie[] cookies = request.getCookies();
       Cookie user = findCookie("user",cookies);
       Cookie logout = findCookie("logout",cookies);
+      HttpSession session = request.getSession();
+
+      if(request.getParameter("logout") != null){
+        logout.setValue("true");
+        user.setValue("");
+
+        response.addCookie(logout);
+        response.addCookie(user);
+
+        out.println("<h1>You are logged out </h1>");
+      }
 
       if (!user.getValue().equals("")) {
+        if(request.getParameter("add") != null){
+          session.setAttribute(request.getParameter("attribute"),
+              request.getParameter("value"));
+        }
+        else if(request.getParameter("remove") != null){
+          session.removeAttribute(request.getParameter("attribute"));
+        }
         out.println("<h1>You are connected as " +
-            user.getValue() +
+            user.getValue()+
             "</h1>");
 
-        out.println("<form action='login' method='GET' >\n"
-            + "<input type='submit' value='Continue' />\n"
-            + "</form>");
-
-        out.println("<form action='login' method='GET' >\n"
+        out.println("<form action='session' method='POST' >\n"
+            + "Attribute : <input type='text' name='attribute'/>\n"
+            + "Value : <input type='text' name='value'/>\n"
+            + "<input type='submit' value='Add' name='add'/>\n"
+            + "<input type='submit' value='Remove' name='remove'/>\n"
             + "<input type='submit' value='Logout' name='logout'/>\n"
             + "</form>");
       }
+
       else if (request.getParameter("password").equals("test") &&
           request.getParameter("login").equals("test") &&
           user.getValue().equals("")) {
@@ -58,11 +78,23 @@ public class Login extends HttpServlet {
         logout.setValue("false");
 
         response.addCookie(user);
-        response.addCookie(user);
+        response.addCookie(logout);
+
+        session.setMaxInactiveInterval(30);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(
-            "login");
+            "session");
         dispatcher.forward(request, response);
+      }
+
+      if(!session.isNew()){
+        Enumeration<String> attributes = session.getAttributeNames();
+        out.println("<ul>");
+        while(attributes.hasMoreElements()){
+          String att = attributes.nextElement();
+          out.println("<li> " + att + " : " + session.getAttribute(att));
+        }
+        out.println("</ul>");
       }
     }
   }
@@ -77,45 +109,18 @@ public class Login extends HttpServlet {
       Cookie user = findCookie("user",cookies);
       Cookie logout = findCookie("logout",cookies);
 
-      System.out.println(user.getValue());
-      System.out.println(logout.getValue());
-
-      if(request.getParameter("logout") != null){
-        logout.setValue("true");
-        user.setValue("");
-
-        response.addCookie(logout);
-        response.addCookie(user);
-
-        out.println("<h1>You are logged out </h1>");
-      }
-
       if(user.getValue().equals("")) {
         out.println("<!DOCTYPE html>" +
             "<html>" +
             "<head>" +
             "<title>Home</title>" +
             "</head>" +
-            "<form action='login' method='POST' >\n"
+            "<form action='session' method='POST' >\n"
             + "Login: <input type='text' name='login' />\n"
             + "Password: <input type='password' name='password' />\n"
             + "<input type='submit' value='Log in' />\n"
             + "</form>"
         );
-      }
-
-      if(!user.getValue().equals("")){
-        out.println("<h1>You are connected as " +
-            user.getValue()+
-            "</h1>");
-
-        out.println("<form action='login' method='GET' >\n"
-            + "<input type='submit' value='Continue' />\n"
-            + "</form>");
-
-        out.println("<form action='login' method='GET' >\n"
-            + "<input type='submit' value='Logout' name='logout'/>\n"
-            + "</form>");
       }
 
       out.println("</body>" +
