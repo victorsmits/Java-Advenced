@@ -35,6 +35,7 @@ public class Login extends HttpServlet {
     try (PrintWriter out = response.getWriter()) {
       Cookie[] cookies = request.getCookies();
       Cookie user = findCookie("user",cookies);
+      Cookie logout = findCookie("logout",cookies);
 
       if (!user.getValue().equals("")) {
         out.println("<h1>You are connected as " +
@@ -49,8 +50,10 @@ public class Login extends HttpServlet {
           user.getValue().equals("")) {
 
         user.setValue(request.getParameter("login"));
+        logout.setValue("false");
 
         response.addCookie(user);
+        response.addCookie(logout);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(
             "login");
@@ -65,40 +68,21 @@ public class Login extends HttpServlet {
     response.setContentType("text/html");
 
     try (PrintWriter out = response.getWriter()) {
-      Enumeration<String> Parameters = request.getParameterNames();
       Cookie[] cookies = request.getCookies();
       Cookie user = findCookie("user",cookies);
       Cookie logout = findCookie("logout",cookies);
 
-      if(logout == null){
-        Cookie l = new Cookie("logout","false" );
+      System.out.println(user.getValue());
+      System.out.println(logout.getValue());
 
-        response.addCookie(l);
+      if(request.getParameter("logout") != null){
+        logout.setValue("true");
+        user.setValue("");
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher(
-            "login");
-        dispatcher.forward(request, response);
-      }
+        response.addCookie(logout);
+        response.addCookie(user);
 
-      if(user == null){
-        Cookie u = new Cookie("user","" );
-
-        response.addCookie(u);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher(
-            "login");
-        dispatcher.forward(request, response);
-      }
-
-      System.out.println(user);
-      System.out.println(logout);
-
-      if(request.getParameter("logout") != null) {
-        assert logout != null;
-        if (logout.getValue().equals("false")) {
-          assert user != null;
-          logout.setValue("true");
-        }
+        out.println("<h1>You are logged out </h1>");
       }
 
       if(user.getValue().equals("")) {
@@ -115,22 +99,13 @@ public class Login extends HttpServlet {
         );
       }
 
-      if(!user.getValue().equals("") &&
-          logout.getValue().equals("false")){
+      if(!user.getValue().equals("")){
         out.println("<h1>You are connected as " +
             user.getValue()+
             "</h1>");
 
         out.println("<a href='login'>continue</a> "
             + "<a href='login?logout=true'>logout</a>");
-      }
-
-      assert logout != null;
-      if(logout.getValue().equals("true") &&
-          request.getParameter("logout") != null){
-        logout.setValue("false");
-        user.setValue("");
-        out.println("<h1>You are logged out </h1>");
       }
 
       out.println("</body>" +
@@ -145,6 +120,9 @@ public class Login extends HttpServlet {
       if(c.getName().equals(name)){
         n = c;
       }
+    }
+    if(n == null){
+      n = new Cookie(name,"");
     }
     return n;
   }
