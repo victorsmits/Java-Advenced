@@ -61,6 +61,8 @@ public class Session extends HttpServlet {
             user.getValue()+
             "</h1>");
 
+        out.println("<p> session ID: " + session.getId());
+
         out.println("<form action='session' method='POST' >\n"
             + "Attribute : <input type='text' name='attribute'/>\n"
             + "Value : <input type='text' name='value'/>\n"
@@ -116,7 +118,7 @@ public class Session extends HttpServlet {
             "<title>Home</title>" +
             "</head>" +
             "<form action='session' method='POST' >\n"
-            + "Login: <input type='text' name='login' />\n"
+            + "Login: <input type='text' name='login'/>\n"
             + "Password: <input type='password' name='password' />\n"
             + "<input type='submit' value='Log in' />\n"
             + "</form>"
