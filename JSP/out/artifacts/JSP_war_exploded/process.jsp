@@ -9,23 +9,23 @@
 <html>
 <head>
 </head>
-<jsp:scriptlet>
+<%
     String user = request.getParameter("user");
     String pwd = request.getParameter("pwd");
-</jsp:scriptlet>
+%>
 
-<jsp:scriptlet>
-    if(user.equal("test") && pwd.equal("test")){
-</jsp:scriptlet>
-        <h1>you are logged in as
-    <jsp:scriptlet>
-        user;
-    }
-    else{
+<%
+    if(user.equals("test") && pwd.equals("test")){
+%>
+        <h1> you are logged in as <%= user %> </h1>
+<%
+    }else{
         response.sendRedirect("login.jsp");
     }
-    </jsp:scriptlet>
-</h1>
+%>
+<form action="logout.jsp">
+    <input type="submit" value="logout">
+</form>
 <body>
 
 </body>
