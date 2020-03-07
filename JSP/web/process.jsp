@@ -10,22 +10,29 @@
 <head>
 </head>
 <%
-    String user = request.getParameter("user");
-    String pwd = request.getParameter("pwd");
-%>
+    if(request.getParameterNames().hasMoreElements() ){
+        String user = request.getParameter("user");
+        String pwd = request.getParameter("pwd");
 
-<%
-    if(user.equals("test") && pwd.equals("test")){
+    if (user.equals("test") && pwd.equals("test")) {
 %>
-        <h1> you are logged in as <%= user %> </h1>
-<%
-    }else{
-        response.sendRedirect("login.jsp");
-    }
-%>
+<h1> you are logged in as <%= user %>
+</h1>
+
 <form action="logout.jsp">
     <input type="submit" value="logout">
 </form>
+<form action="process.jsp" method="post">
+    <input type="text" name="user" value="<%=user%>" hidden>
+    <input type="password" name="pwd" value="<%=pwd%>" hidden>
+    <input type="submit" value="continue">
+</form>
+
+<%
+        }
+    }
+%>
+
 <body>
 
 </body>

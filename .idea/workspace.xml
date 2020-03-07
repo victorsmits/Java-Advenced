@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f1dc6a1-15f4-40c4-ae6b-191d1ebd471b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/JSP/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JSP/.idea/artifacts/JSP_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JSP/.idea/composerJson.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JSP/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JSP/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JSP/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JSP/JSP.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JSP/web/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JSP/web/logout.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JSP/web/process.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/out/production/WebApp/controller/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/out/production/WebApp/controller/Session.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/src/controller/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/src/controller/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Java Advenced.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Java Advenced.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSP/out/artifacts/JSP_war_exploded/process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/JSP/out/artifacts/JSP_war_exploded/process.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSP/web/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/JSP/web/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSP/web/process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/JSP/web/process.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,18 +33,6 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -67,11 +46,12 @@
       <workItem from="1582632529490" duration="127000" />
       <workItem from="1582698711938" duration="58000" />
       <workItem from="1583341368966" duration="40000" />
+      <workItem from="1583342670298" duration="330000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
