@@ -1,8 +1,9 @@
 package exercise4.client;
 
 import exercise4.Task;
+import java.io.Serializable;
 
-public class IntegerAdder implements Task<Integer> {
+public class IntegerAdder implements Task<Integer>, Serializable {
 
   int A;
   int B;

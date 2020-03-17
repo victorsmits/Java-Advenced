@@ -1,10 +1,11 @@
 package exercise4.client;
 
 import exercise4.Task;
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
-public class StringSorter implements Task<List<String>> {
+public class StringSorter implements Task<List<String>>, Serializable {
 
   List<String> list;
 
