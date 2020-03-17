@@ -39,11 +39,16 @@ public class Client_Exo_3 {
 
     // call the setProperty
 
-
     String key = "Smits";
     String value = "Victor";
     System.out.println("client: sending (" + key + ", " + value + ")");
     SP.setProperty(key, value);
+    System.out.println("the attribute has been set");
+
+    String key2 = "Snyers";
+    String value2 = "Harold";
+    System.out.println("client: sending (" + key2 + ", " + value2 + ")");
+    SP.setProperty(key2, value2);
     System.out.println("the attribute has been set");
 
     // call the getProperty
@@ -51,6 +56,12 @@ public class Client_Exo_3 {
     System.out.println("client: sending " + key);
     value = SP.getProperty(key);
     System.out.println("client: received " + value);
+
+    // call the getProperty
+    key2 = "Snyers";
+    System.out.println("client: sending " + key2);
+    value2 = SP.getProperty(key2);
+    System.out.println("client: received " + value2);
 
     // call the removeProperty
     key = "Smits";
@@ -62,7 +73,23 @@ public class Client_Exo_3 {
     key = "Smits";
     System.out.println("client: sending " + key);
     value = SP.getProperty(key);
-    System.out.println("client: received " + value);
+    if(value != null){
+      System.out.println("client: received " + value);
+    }else{
+      System.out.println("client: Key does not exist");
+    }
+
+
+    // call the getProperty
+    key2 = "Snyers";
+    System.out.println("client: sending " + key2);
+    value2 = SP.getProperty(key2);
+    if(value2 != null){
+      System.out.println("client: received " + value2);
+    }else{
+      System.out.println("client: Key does not exist");
+    }
+
 
     // main terminates here
     System.out.println("client: exiting");
