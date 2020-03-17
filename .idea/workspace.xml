@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f1dc6a1-15f4-40c4-ae6b-191d1ebd471b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Java Advenced.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Java Advenced.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSP/out/artifacts/JSP_war_exploded/process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/JSP/out/artifacts/JSP_war_exploded/process.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSP/web/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/JSP/web/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSP/web/process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/JSP/web/process.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JSP/out/production/JSP/controller/LoginUser.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SMITS-Victor-SNYERS-Harold.zip" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +31,18 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -47,11 +57,12 @@
       <workItem from="1582698711938" duration="58000" />
       <workItem from="1583341368966" duration="40000" />
       <workItem from="1583342670298" duration="330000" />
+      <workItem from="1583754575641" duration="175000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
